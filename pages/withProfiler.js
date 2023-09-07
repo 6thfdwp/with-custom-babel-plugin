@@ -18,7 +18,7 @@ const ConsoleProfiler= (() => {
       if (tid) clearTimeout(tid)
       tid = setTimeout(() => {
         self.print()
-      }, 100)
+      }, 60)
     },
   
     clear: () => {
@@ -39,8 +39,8 @@ const ConsoleProfiler= (() => {
         tables[k] = {
           "mount": `${mounts.length} [${formatTime(sumTime(mounts))}]`,
           "re-renders": updates.length, 
-          "total time": formatTime(accTime), 
-          "avg time": updates.length>0 ? formatTime(accTime/updates.length) : 0
+          "total re-render time": formatTime(accTime), 
+          // "avg time": updates.length>0 ? formatTime(accTime/updates.length) : 0
         }
       }
       console.table(tables)

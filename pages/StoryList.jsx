@@ -1,32 +1,32 @@
 import { useState, useEffect } from 'react'
 
-import { StoryLike } from './StoryLike'
+import { StoryItem } from './StoryItem'
 
 const randomLikes = () => Math.ceil(Math.random() * 100);
 const data = [
   {
     name: 'React introduction',
-    url: 'http://bit.ly/2pX7HNn',
+    url: 'https://twitter.com',
     likes: randomLikes(),
   },
   {
     name: 'Element creation and JSX',
-    url: 'http://bit.ly/2qGbw8S',
+    url: 'https://twitter.com',
     likes: randomLikes(),
   },
   {
     name: 'Instances and reconciliation',
-    url: 'http://bit.ly/2q4A746',
+    url: 'https://twitter.com',
     likes: randomLikes(),
   },
   {
     name: 'Components and state',
-    url: 'http://bit.ly/2rE16nh',
+    url: 'https://twitter.com',
     likes: randomLikes(),
   },
   {
     name: 'Commit to mutate DOM elements ',
-    url: 'http://bit.ly/2qCOejH',
+    url: 'https://twitter.com',
     likes: randomLikes(),
   },
 
@@ -56,7 +56,7 @@ export const StoryList =  () => {
   return (
     <ul style={styles.ul}>
       {stories.map((s, i) => {
-        return <StoryLike key={s.url} story={s} onToggle={() => handleLike(i)} />;
+        return <StoryItem key={s.name} story={s} onToggle={() => handleLike(i)} />;
       })}
     </ul>
   //  <button onClick={(e) => handleAdd()}>Add</button>

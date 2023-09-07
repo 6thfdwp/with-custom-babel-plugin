@@ -7,7 +7,7 @@ const styles = {
   },
 }
 
-export const StoryLike = ({ story, onToggle }) => {
+export const StoryItem = ({ story, onToggle }) => {
   return (
     <li>
       <button

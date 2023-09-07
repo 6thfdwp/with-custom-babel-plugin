@@ -25,12 +25,13 @@ const myplugin = ({ types: t }) => {
 
         const compName = def.node.id.name
         const origArrowFn = def.node.init
+        // use template to transform a string to equivalent AST node CallExpression
         const wrappedFn = buildFunctionWrapper({
           ORIGINAL_FN_CALL: origArrowFn,
           COMP_NAME: `'${compName}'`,
         })
         console.log(`## applying withProfiler ${compName}`)
-
+        // where magic happens, replace original node ArrowFunctionExpression -> new node CallExpression
         path.get('declaration.declarations.0.init').replaceWith(wrappedFn)
       }
     }
